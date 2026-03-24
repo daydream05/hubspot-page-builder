@@ -33,7 +33,7 @@ export function buildLayoutSectionsFromHtml(htmlContent: string) {
       params: {},
       rowMetaData: [
         {
-          cssClass: "dnd-section",
+          cssClass: "dnd-section hubspot-page-builder-full-width",
         },
       ],
       rows: [
@@ -45,7 +45,7 @@ export function buildLayoutSectionsFromHtml(htmlContent: string) {
             cssStyle: "",
             name: "dnd_area-column-1",
             params: {
-              css_class: "dnd-column",
+              css_class: "dnd-column hubspot-page-builder-full-width-column",
             },
             rowMetaData: [
               {

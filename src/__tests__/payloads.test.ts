@@ -11,7 +11,11 @@ describe("buildLayoutSectionsFromHtml", () => {
     const sections = buildLayoutSectionsFromHtml("<h1>Hello</h1>");
 
     expect(sections.dnd_area.label).toBe("Main section");
+    expect(sections.dnd_area.rowMetaData[0]?.cssClass).toContain("hubspot-page-builder-full-width");
     expect(sections.dnd_area.rows).toHaveLength(1);
+    expect(sections.dnd_area.rows[0]?.["0"]?.params?.css_class).toContain(
+      "hubspot-page-builder-full-width-column",
+    );
     expect(
       sections.dnd_area.rows[0]?.["0"]?.rows?.[0]?.["0"]?.params?.path,
     ).toBe("@hubspot/rich_text");
