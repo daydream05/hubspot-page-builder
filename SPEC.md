@@ -108,10 +108,20 @@ To avoid portal-specific template mismatches, the tool supports a configurable `
 
 1. Check templates.
 2. Generate content.
-3. Create a draft page.
-4. Return preview details.
-5. Revise.
-6. Publish only on explicit approval.
+3. Create or update a draft page.
+4. Publish when the user is ready to verify the rendered output.
+5. Review the published page as the source of truth.
+6. Revise and republish as needed.
+
+## Blank-template review behavior
+
+For the verified blank landing page template (`@hubspot/elevate/templates/blank.hubl.html`), HubSpot’s draft editor canvas is not a reliable preview of API-written body content.
+
+That means:
+
+- `preview-url` may be `null`
+- the editor may look empty or stale even when the body content is stored correctly
+- the published URL is the authoritative way to review rendered output
 
 ## Non-Goals for v1
 

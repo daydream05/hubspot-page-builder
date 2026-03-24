@@ -1,6 +1,6 @@
 # hubspot-page-builder
 
-HubSpot Page Builder is a CLI-backed skill for Claude, OpenClaw, and skills.sh. It creates, updates, previews, and publishes HubSpot landing pages from raw HTML through the HubSpot CMS Pages API.
+HubSpot Page Builder is a CLI-backed skill for Claude, OpenClaw, and skills.sh. It creates, updates, and publishes HubSpot landing pages from raw HTML through the HubSpot CMS Pages API.
 
 The local command does the deterministic work. The skill teaches an agent how to use that command safely in a draft-first workflow.
 
@@ -133,5 +133,7 @@ npm run smoke
 - Scaffolded Elevate templates such as event/signup/info layouts are not safe for raw HTML body replacement and are treated as unsupported for body editing
 - Internally the blank-template flow maps HTML into a single `@hubspot/rich_text` DnD section
 - Pages are always draft-first
-- Preview URLs are best effort and may be `null`
+- For blank-template pages, the HubSpot editor canvas is not a reliable preview of API-written body content
+- For blank-template pages, the published URL is the source of truth for review
+- `preview-url` is best effort and may be `null`
 - If your portal has a specific safe landing page template, set `HUBSPOT_DEFAULT_TEMPLATE_PATH` or store `defaultTemplatePath` in config

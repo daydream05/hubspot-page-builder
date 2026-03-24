@@ -1,6 +1,6 @@
 ---
 name: hubspot-page-builder
-description: Use this skill when creating, updating, previewing, or publishing HubSpot landing pages through the local `hubspot-page-builder` command. Works for Claude, OpenClaw, and skills.sh style skill installs.
+description: Use this skill when creating, updating, or publishing HubSpot landing pages through the local `hubspot-page-builder` command. Works for Claude, OpenClaw, and skills.sh style skill installs.
 ---
 
 # HubSpot Page Builder
@@ -12,7 +12,6 @@ Use this skill when the user wants to create or modify a HubSpot landing page an
 - selects and inspects HubSpot templates
 - creates draft landing pages from raw HTML
 - updates draft content and metadata
-- requests preview information
 - publishes only after explicit confirmation
 
 ## Required runtime
@@ -32,6 +31,8 @@ Run `scripts/doctor.sh` if you need to verify the environment first.
 - Inspect the JSON response after every command before taking the next action.
 - If the user gives a HubSpot editor URL, extract the page ID from the URL and use that page as the update target.
 - Raw HTML body editing is only supported for the verified blank landing page template. Do not use it to overwrite scaffolded Elevate templates such as event, signup, info-request, or meeting-booking layouts.
+- For blank-template pages, do not trust the HubSpot draft editor canvas as the final preview. Review the rendered published URL instead.
+- `preview-url` is optional and may be `null`.
 
 ## Workflow
 
@@ -39,9 +40,9 @@ Run `scripts/doctor.sh` if you need to verify the environment first.
 2. Run `hubspot-page-builder list-templates`.
 3. Generate the page HTML and metadata from the user’s request.
 4. Create a draft with `hubspot-page-builder create-page --input -`.
-5. Run `hubspot-page-builder preview-url --page-id <id>`.
-6. If the user asks for changes, run `hubspot-page-builder update-page --input -`. The input may contain either `pageId` or `pageUrl`.
-7. Publish only after explicit confirmation with `hubspot-page-builder publish-page --page-id <id>`.
+5. If the user asks for changes, run `hubspot-page-builder update-page --input -`. The input may contain either `pageId` or `pageUrl`.
+6. Publish only after explicit confirmation with `hubspot-page-builder publish-page --page-id <id>`.
+7. Review the rendered published URL, not just the HubSpot editor canvas, for blank-template pages.
 
 ## Command examples
 

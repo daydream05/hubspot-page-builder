@@ -74,6 +74,8 @@ hubspot-page-builder preview-url --page-id 123
 hubspot-page-builder publish-page --page-id 123
 ```
 
+For blank-template pages, do not rely on the HubSpot editor canvas as the final preview. Publish and review the rendered URL instead. `preview-url` may return `null`.
+
 ## Template defaults
 
 The create flow uses this precedence for template selection:
