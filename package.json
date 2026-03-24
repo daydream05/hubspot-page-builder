@@ -1,0 +1,51 @@
+{
+  "name": "hubspot-page-builder",
+  "version": "0.1.0",
+  "description": "HubSpot Page Builder: a CLI-backed skill for creating and publishing HubSpot landing pages.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daydream05/hubspot-page-builder.git"
+  },
+  "homepage": "https://github.com/daydream05/hubspot-page-builder",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "hubspot-page-builder": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "skills"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch bin/cli.ts",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "format": "prettier --check .",
+    "smoke": "tsx scripts/smoke.ts"
+  },
+  "dependencies": {
+    "zod": "^4.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/parser": "^8.57.2",
+    "@vitest/coverage-v8": "^4.1.1",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.4.0",
+    "msw": "^2.12.14",
+    "prettier": "^3.8.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.1"
+  }
+}
