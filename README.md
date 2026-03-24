@@ -22,9 +22,14 @@ MCP can still be added later as an adapter over the same core library.
 
 ## Install
 
-### 1. Get a HubSpot token
+### 1. Get a HubSpot access credential
 
-Create a HubSpot private app with the `content` scope and copy the bearer token.
+Use one of these:
+
+- a **legacy private app access token** with the `content` scope
+- a **service key** with the `content` scope
+
+In both cases, the tool uses the value as a bearer token through `HUBSPOT_ACCESS_TOKEN`.
 
 ### 2. Install the command
 
@@ -41,7 +46,7 @@ npm run dev -- list-templates
 
 ### 3. Configure auth
 
-Either export the token:
+Either export the access token or service key:
 
 ```bash
 export HUBSPOT_ACCESS_TOKEN="pat-..."
@@ -53,7 +58,7 @@ You can also pin a portal-specific default landing page template:
 export HUBSPOT_DEFAULT_TEMPLATE_PATH="@hubspot/elevate/templates/blank.hubl.html"
 ```
 
-Or persist local config:
+Or persist it in local config:
 
 ```bash
 node dist/cli.js init --access-token pat-...
